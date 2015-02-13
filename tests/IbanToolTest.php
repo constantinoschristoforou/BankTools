@@ -4,7 +4,7 @@
  *
  */
 
-include_once 'src/Iban/IbanCalculator.php';
+include_once 'src/Iban/IbanGenerator.php';
 
 
 class EuroBankIbanToolTest extends PHPUnit_Framework_TestCase {
