@@ -1,0 +1,7 @@
+{
+    "require": {
+        "jschaedl/iban": "1.1.6",
+        "phpoffice/phpexcel": "dev-develop",
+        "phpunit/phpunit": "~3.7"
+    }
+}
