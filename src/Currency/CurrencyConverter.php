@@ -15,7 +15,7 @@ class CurrencyConverter
         }
     }
 
-    public function validateUserInput($amount, $currencyCode)
+    public static  function validateUserInput($amount, $currencyCode)
     {
         $error_messages = array();
         $result = array();
@@ -29,7 +29,7 @@ class CurrencyConverter
         }
 
 
-        if (!$this->validateCurrency($amount)) {
+        if (!self::validateCurrency($amount)) {
 
             $error_messages['from_currency_valid'] = 'Please give a valid currency';
         }
@@ -48,32 +48,31 @@ class CurrencyConverter
 
     }
 
-    public function validateCurrency($currency)
+    public static function validateCurrency($currency)
     {
         return preg_match('/\b\d{1,3}(?:,?\d{3})*(?:\.\d{2})?\b/', $currency);
 
     }
 
-    public function convertCurrency($action, $amount, $currencyCode)
+    public static function convertCurrency($action, $amount, $currencyCode)
     {
-        if (strtolower($action) == "sell") {
+        $rate = self::getCurrencyRate($action, $currencyCode);
 
-            $rate = $this->getCurrencyRate($action, $currencyCode);
+
+
+        if (strtolower($action) == "sell") {
 
             return round($amount * $rate, 2);
 
-        } else if (strtolower($action) == "BUY") {
-
-            $rate = $this->getCurrencyRate($action, $currencyCode);
+        } else if (strtolower($action) == "buy") {
 
             return round($amount / $rate, 2);
 
         }
 
-
     }
 
-    function getCurrencyRate($action, $currencyCode)
+   public static function  getCurrencyRate($action, $currencyCode)
     {
         foreach (self::$rates as $rate) {
 
@@ -123,7 +122,7 @@ class CurrencyConverter
         return $resultArray;
     }
 
-     public function getRates()
+     public static  function getRates()
     {
         return self::$rates;
     }

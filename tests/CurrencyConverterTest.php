@@ -29,21 +29,19 @@ class EuroBankCurrencyToolTest extends PHPUnit_Framework_TestCase
         );
     }
 
-
     public function currencyConverter()
     {
-
         return array(
-            array('SELL', '100.00', 'CAD', '80'),
-            array('BUY', '100.00', 'AUD', '125'),
-            array('SELL', '10000', 'BGN', '8000'),
+            array('SELL', '100.00', 'CAD', '135.81'),
+            array('BUY', '100.00', 'AUD', '69.26'),
+            array('SELL', '10000', 'BGN', '19167.33'),
         );
     }
 
     /**
-     *$action
-     *$currencyCode
-     * $expectedResult
+     *action
+     *currencyCode
+     *expectedResult
      */
     public function getExcelRates()
     {
@@ -60,12 +58,9 @@ class EuroBankCurrencyToolTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider userInputCurrencyConverter
      */
-    public function dtest1_validateUserInputCurrencyConverter($ammount, $currencyCode)
+    public function test_validateUserInputCurrencyConverter($ammount, $currencyCode)
     {
-
-        $currencyConverter = new CurrencyConverter();
-
-        $result = $currencyConverter->validateUserInput($ammount, $currencyCode);
+        $result=CurrencyConverter::validateUserInput($ammount, $currencyCode);
 
         $this->assertEquals($result['status'], 'OK', "Validation function result does not much with the expected one");
 
@@ -76,19 +71,27 @@ class EuroBankCurrencyToolTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider currencyConverter
      */
-    public function dtest1_convertCurrency($action, $amount, $currencyCode, $expectedAmount)
+    public function test_convertCurrency($action, $amount, $currencyCode, $expectedAmount)
     {
 
-        $currencyConverter = new CurrencyConverter();
+        $options = array(
+            'sheet' => 1,
+            'start_row' => 2,
+            'ccy_col' => 'A',
+            'sell_col' => 'B',
+            'buy_col' => 'C',
 
-        $result = $currencyConverter->convertCurrency($action, $amount, $currencyCode);
+        );
+
+        CurrencyConverter::init('tests\TestFiles\FX_Rates_MorningOpenDay.xls', $options);
+
+        $result=CurrencyConverter::convertCurrency($action, $amount, $currencyCode);
 
         $this->assertEquals($result, $expectedAmount, "Wrong currency calculations");
 
     }
 
     /**
-     *
      *
      */
     public function test_loadRatesFromExcelFile()
@@ -102,11 +105,9 @@ class EuroBankCurrencyToolTest extends PHPUnit_Framework_TestCase
 
         );
 
-        CurrencyConverter::init('C:\Users\c.christoforou\Development\eurobankTools\tests\TestFiles\FX_Rates_MorningOpenDay.xls', $options);
+        CurrencyConverter::init('\tests\TestFiles\FX_Rates_MorningOpenDay.xls', $options);
 
-        $currencyConverter = new CurrencyConverter();
-
-        $rates = $currencyConverter->getRates();
+        $rates = CurrencyConverter::getRates();
 
         $this->assertNotEmpty(count($rates), "Rates did not load successfully - Rates array len is zero");
 
@@ -129,9 +130,7 @@ class EuroBankCurrencyToolTest extends PHPUnit_Framework_TestCase
 
         CurrencyConverter::init('C:\Users\c.christoforou\Development\eurobankTools\tests\TestFiles\FX_Rates_MorningOpenDay.xls', $options);
 
-        $currencyConverter = new CurrencyConverter();
-
-        $rate = $currencyConverter->getCurrencyRate($action, $currencyCode);
+        $rate =CurrencyConverter::getCurrencyRate($action, $currencyCode);
 
         $this->assertEquals($rate,$expectedRate,'Rate from excel dont much the retrieved one');
 
