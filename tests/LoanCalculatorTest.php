@@ -10,8 +10,6 @@ include_once 'src/Loan/LoanCalculator.php';
 
 class EuroBanckLoanCalculatorTest extends PHPUnit_Framework_TestCase
 {
-
-
     /*
      * Dataprovider for user input of Loan calculation
      *
@@ -22,7 +20,7 @@ class EuroBanckLoanCalculatorTest extends PHPUnit_Framework_TestCase
     public function userInputLoanCalculator()
     {
         return array(
-            array('100', '10', '5', '', 'OK'),
+            array('100', '10', '5', '13/02/2015', 'OK'),
             array('1000', '20', '7', '', 'OK'),
             array('10000', '30', '10', '', 'OK'),
         );
@@ -32,7 +30,7 @@ class EuroBanckLoanCalculatorTest extends PHPUnit_Framework_TestCase
     public function loanCalculator()
     {
         return array(
-            array('1', '10', '5', '5/05/2005'),
+            array('1', '10', '5', '13/02/2015'),
             array('1000', '20', '7', ''),
             array('10000', '30', '10', ''),
         );
@@ -42,11 +40,15 @@ class EuroBanckLoanCalculatorTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider userInputLoanCalculator
      */
-    public function test_validateUserInput($loan_amount, $loan_months, $loan_rate, $start_date, $valid)
+    public function test_validateUserInput($loanAmount, $loanMonths, $loanRate, $startDate, $valid)
     {
-
         $loanCalculator = new LoanCalculator();
-        $result = $loanCalculator->validateUserInput($loan_amount, $loan_months, $loan_rate, $start_date);
+        $loanCalculator->setLoanAmount($loanAmount);
+        $loanCalculator->setLoanTerm($loanMonths);
+        $loanCalculator->setInterestRate($loanRate);
+        $loanCalculator->setLoanStart($startDate);
+
+        $result = $loanCalculator->validateUserInput();
 
         $this->assertEquals($result['status'], $valid, "Validation function result dont much with the expected one");
 
@@ -57,12 +59,15 @@ class EuroBanckLoanCalculatorTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider loanCalculator
      */
-    public function test_loadCalculation($loan_amount, $loan_months, $loan_rate, $start_date)
+    public function test_loadCalculation($loanAmount, $loanMonths, $loanRate, $startDate)
     {
-
         $loanCalculator = new LoanCalculator();
-        $result = $loanCalculator->getLoanMonthlyPayments($loan_amount, $loan_months, $loan_rate, $start_date);
+        $loanCalculator->setLoanAmount($loanAmount);
+        $loanCalculator->setLoanTerm($loanMonths);
+        $loanCalculator->setInterestRate($loanRate);
+        $loanCalculator->setLoanStart($startDate);
 
+        $result = $loanCalculator->getLoanMonthlyPayments();
 
         $this->assertEquals('OK', $result['status'], 'Loan calculator error');
         $this->assertGreaterThan(0, count($result['data']));
