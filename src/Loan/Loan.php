@@ -122,7 +122,7 @@ abstract class Loan
 
         }
 
-        var_dump($this->loan_start_timestamp );
+
     }
 
 
