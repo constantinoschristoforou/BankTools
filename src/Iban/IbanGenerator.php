@@ -16,7 +16,6 @@ class IbanCalculator
         $this->bankCode = $bankCode;
     }
 
-
     public function normalizeBranchCode($branch_code, $digit_num = 5)
     {
         $padding = '';
