@@ -58,7 +58,7 @@ class IbanCalculator
         }
 
         if (strlen($account_number) != 16) {
-            $error_messages['account_number_limit'] = 'Account number must be 16 characters<br/>';
+            $error_messages['account_number_limit'] = 'Account number must be 16 characters';
         }
 
         if (count($error_messages)) {
