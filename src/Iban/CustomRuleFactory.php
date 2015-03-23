@@ -2,13 +2,8 @@
 
 namespace Qobo\BankTools\Iban;
 
-// use Qobo\BankTools\IBAN\Rule\CY\Rule000000;
-
-
-use IBAN\Rule\RuleFactory;
 use IBAN\Rule\RuleFactoryInterface;
 use IBAN\Rule\Exception\RuleNotYetImplementedException;
-
 
 class CustomRuleFactory implements RuleFactoryInterface{
 

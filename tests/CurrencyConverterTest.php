@@ -6,9 +6,6 @@
 
 use Qobo\BankTools\Currency\CurrencyConverter;
 
-//  include_once 'src/Currency/CurrencyConverter.php';
-//require_once '/vendor/autoload.php';
-
 require_once __DIR__.'/../vendor/autoload.php';
 
 
@@ -87,7 +84,7 @@ class CurrencyToolTest extends PHPUnit_Framework_TestCase
 
         );
 
-        CurrencyConverter::init('tests\TestFiles\FX_Rates_MorningOpenDay.xls', $options);
+        CurrencyConverter::init('tests\TestFiles\rates.xls', $options);
 
         $result=CurrencyConverter::convertCurrency($action, $amount, $currencyCode);
 
@@ -109,7 +106,7 @@ class CurrencyToolTest extends PHPUnit_Framework_TestCase
 
         );
 
-        CurrencyConverter::init('\tests\TestFiles\FX_Rates_MorningOpenDay.xls', $options);
+        CurrencyConverter::init('\tests\TestFiles\rates.xls', $options);
 
         $rates = CurrencyConverter::getRates();
 
@@ -132,7 +129,6 @@ class CurrencyToolTest extends PHPUnit_Framework_TestCase
 
         );
 
-        echo __DIR__.'\TestFiles\FX_Rates_MorningOpenDay.xls';
 
         CurrencyConverter::init( __DIR__.'\TestFiles\rates.xls', $options);
 

@@ -12,13 +12,7 @@
 
 namespace Qobo\BankTools\Iban;
 
-use IBAN\Validation\IBANValidator;
 use IBAN\Generation\IBANGenerator;
-use IBAN\Rule\RuleFactory;
-use IBAN\Rule\RuleFactoryInterface;
-use Bav\Bav;
-
-
 
 class IBANGeneratorCY extends IBANGenerator
 {    	
