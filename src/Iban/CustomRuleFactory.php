@@ -24,7 +24,6 @@ Public function createIbanRule($ibanRuleCodeAndVersion, $instituteIdentification
 
     if (file_exists($ibanRuleFilePath)) {
         $ibanRuleQualifiedClassName = 'Qobo\\BankTools\\Iban\\Rule\\' . $this->localeCode . '\\Rule' . $ibanRuleCodeAndVersion;
-
         return new $ibanRuleQualifiedClassName($this->localeCode, $instituteIdentification, $bankAccountNumber);
 
     } else {

@@ -10,7 +10,6 @@ class IbanCalculator
     private $bankCode;
     function __construct($bankCode)
     {
-
         $this->bankCode = $bankCode;
     }
 
@@ -103,6 +102,5 @@ class IbanCalculator
         return $result;
 
     }
-
 
 } 
