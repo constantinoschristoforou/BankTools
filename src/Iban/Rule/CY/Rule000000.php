@@ -1,12 +1,9 @@
 <?php
 /**
- * Iban
+ * Iban rules for Cyprus
  *
- * @author      Jan Schaedlich <schaedlich.jan@gmail.com>
- * @copyright   2013 Jan Schaedlich
- * @link        https://github.com/jschaedl/Iban
+ * @author      Constantinos Christoforou <c.christoforou@qobo.biz>
  *
- * MIT LICENSE
  */
 namespace Qobo\BankTools\Iban\Rule\CY;
 
