@@ -20,7 +20,7 @@ class CustomRuleFactory implements RuleFactoryInterface{
 Public function createIbanRule($ibanRuleCodeAndVersion, $instituteIdentification, $bankAccountNumber)
 {
     $ibanRuleFilename = 'Rule' . $ibanRuleCodeAndVersion . '.php';
-    $ibanRuleFilePath =  'src' .DIRECTORY_SEPARATOR.'Iban'.DIRECTORY_SEPARATOR.'Rule' . DIRECTORY_SEPARATOR . $this->localeCode . DIRECTORY_SEPARATOR . $ibanRuleFilename;
+    $ibanRuleFilePath = __DIR__.DIRECTORY_SEPARATOR.'Rule' . DIRECTORY_SEPARATOR . $this->localeCode . DIRECTORY_SEPARATOR . $ibanRuleFilename;
 
     if (file_exists($ibanRuleFilePath)) {
         $ibanRuleQualifiedClassName = 'Qobo\\BankTools\\Iban\\Rule\\' . $this->localeCode . '\\Rule' . $ibanRuleCodeAndVersion;
