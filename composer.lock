@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b3aa717d0e7cd3bdbf8569bb0d98450e",
+    "hash": "b0ebb2b450b8d32765900f3b299c5bbe",
     "packages": [
         {
             "name": "jschaedl/bav",
@@ -105,12 +105,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PHPExcel.git",
-                "reference": "31aa953c0b97a22a98d67f00905840bd2d0499bd"
+                "reference": "929add1e3647beb18892bbf653242abdb13ad0e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/31aa953c0b97a22a98d67f00905840bd2d0499bd",
-                "reference": "31aa953c0b97a22a98d67f00905840bd2d0499bd",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/929add1e3647beb18892bbf653242abdb13ad0e1",
+                "reference": "929add1e3647beb18892bbf653242abdb13ad0e1",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2015-02-04 15:41:59"
+            "time": "2015-03-19 09:43:11"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -524,21 +524,24 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "60ed7751671113cf1ee7d7778e691642c2e9acd8"
+                "reference": "0cd8e72071e46e15fc072270ae39ea1b66b10a9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/60ed7751671113cf1ee7d7778e691642c2e9acd8",
-                "reference": "60ed7751671113cf1ee7d7778e691642c2e9acd8",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/0cd8e72071e46e15fc072270ae39ea1b66b10a9d",
+                "reference": "0cd8e72071e46e15fc072270ae39ea1b66b10a9d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -567,7 +570,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:39:26"
+            "time": "2015-03-12 10:28:44"
         }
     ],
     "packages-dev": [],

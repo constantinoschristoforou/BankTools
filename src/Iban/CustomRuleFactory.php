@@ -1,7 +1,8 @@
 <?php
 
+namespace Qobo\BankTools\Iban;
 
-include_once 'Rule/CY/Rule000000.php';
+// use Qobo\BankTools\IBAN\Rule\CY\Rule000000;
 
 
 use IBAN\Rule\RuleFactory;
@@ -27,7 +28,7 @@ Public function createIbanRule($ibanRuleCodeAndVersion, $instituteIdentification
     $ibanRuleFilePath =  'src' .DIRECTORY_SEPARATOR.'Iban'.DIRECTORY_SEPARATOR.'Rule' . DIRECTORY_SEPARATOR . $this->localeCode . DIRECTORY_SEPARATOR . $ibanRuleFilename;
 
     if (file_exists($ibanRuleFilePath)) {
-        $ibanRuleQualifiedClassName = '\\IBAN\\Rule\\' . $this->localeCode . '\\Rule' . $ibanRuleCodeAndVersion;
+        $ibanRuleQualifiedClassName = 'Qobo\\BankTools\\Iban\\Rule\\' . $this->localeCode . '\\Rule' . $ibanRuleCodeAndVersion;
 
         return new $ibanRuleQualifiedClassName($this->localeCode, $instituteIdentification, $bankAccountNumber);
 

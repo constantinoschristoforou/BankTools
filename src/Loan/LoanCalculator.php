@@ -1,11 +1,9 @@
 <?php
 
-include_once 'Loan.php';
-
+namespace Qobo\BankTools\Loan;
 
 class LoanCalculator extends Loan
 {
-
     public function validateUserInput()
     {
 

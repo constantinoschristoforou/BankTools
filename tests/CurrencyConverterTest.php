@@ -4,11 +4,15 @@
  *
  */
 
+use Qobo\BankTools\Currency\CurrencyConverter;
 
-include_once 'src/Currency/CurrencyConverter.php';
-include_once 'vendor/autoload.php';
+//  include_once 'src/Currency/CurrencyConverter.php';
+//require_once '/vendor/autoload.php';
 
-class EuroBankCurrencyToolTest extends PHPUnit_Framework_TestCase
+require_once __DIR__.'/../vendor/autoload.php';
+
+
+class CurrencyToolTest extends PHPUnit_Framework_TestCase
 {
 
 
@@ -128,7 +132,9 @@ class EuroBankCurrencyToolTest extends PHPUnit_Framework_TestCase
 
         );
 
-        CurrencyConverter::init('C:\Users\c.christoforou\Development\eurobankTools\tests\TestFiles\FX_Rates_MorningOpenDay.xls', $options);
+        echo __DIR__.'\TestFiles\FX_Rates_MorningOpenDay.xls';
+
+        CurrencyConverter::init( __DIR__.'\TestFiles\rates.xls', $options);
 
         $rate =CurrencyConverter::getCurrencyRate($action, $currencyCode);
 

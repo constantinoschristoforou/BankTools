@@ -1,7 +1,21 @@
 {
+    "name": "Qobo/BankTools",
+    "description": "Includes Currency converter,Iban Generator and Loan calculator",
+    "authors": [
+        {
+            "name": "Constantinos Christoforou",
+            "email": "c.christoforou@qobo.biz"
+        }
+    ],
     "require": {
         "jschaedl/iban": "1.1.6",
         "phpoffice/phpexcel": "dev-develop",
         "phpunit/phpunit": "~3.7"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Qobo\\BankTools\\": "src"
+        }
     }
 }

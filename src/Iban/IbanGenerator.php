@@ -1,8 +1,6 @@
 <?php
 
-
-
-require_once 'IBANGeneratorCY.php';
+namespace Qobo\BankTools\Iban;
 
 use IBAN\Validation\IBANValidator;
 

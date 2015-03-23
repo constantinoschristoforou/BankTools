@@ -10,10 +10,7 @@
  */
 
 
-
-require_once  'vendor/autoload.php';
-require_once 'CustomRuleFactory.php';
-
+namespace Qobo\BankTools\Iban;
 
 use IBAN\Validation\IBANValidator;
 use IBAN\Generation\IBANGenerator;

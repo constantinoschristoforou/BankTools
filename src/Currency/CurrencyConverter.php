@@ -1,5 +1,8 @@
 <?php
 
+namespace Qobo\BankTools\Currency;
+
+use PHPExcel_IOFactory;
 
 class CurrencyConverter
 {
@@ -101,7 +104,7 @@ class CurrencyConverter
 
     public static function loadRatesFromExcelFile($filePath, $options)
     {
-
+        //Not generic file parsing
         $excelReader = PHPExcel_IOFactory::createReaderForFile($filePath);
 
         $excelReader->setReadDataOnly(true);

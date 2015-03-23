@@ -1,4 +1,9 @@
 <?php
+
+
+namespace Qobo\BankTools\Loan;
+
+use \DateTime;
 /**
  * Loan calculator class
  *

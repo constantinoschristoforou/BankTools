@@ -5,8 +5,9 @@
  */
 
 
+use Qobo\BankTools\Loan\LoanCalculator;
 
-include_once 'src/Loan/LoanCalculator.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 class EuroBanckLoanCalculatorTest extends PHPUnit_Framework_TestCase
 {

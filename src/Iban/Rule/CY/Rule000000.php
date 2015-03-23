@@ -8,7 +8,7 @@
  *
  * MIT LICENSE
  */
-namespace IBAN\Rule\CY;
+namespace Qobo\BankTools\Iban\Rule\CY;
 
 use IBAN\Core\Constants;
 use IBAN\Rule\AbstractRule;

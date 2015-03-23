@@ -4,8 +4,10 @@
  *
  */
 
-include_once 'src/Iban/IbanGenerator.php';
 
+use Qobo\BankTools\Iban\IbanCalculator;
+//include_once 'src/Iban/IbanGenerator.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 class EuroBankIbanToolTest extends PHPUnit_Framework_TestCase {
 
