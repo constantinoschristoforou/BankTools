@@ -8,7 +8,7 @@ class LoanCalculator extends Loan
     private $thousandsSeparator ;
     private $decimalSeparator;
 
-    function __construct($thousandsSeparator='.',$decimalSeparator=',') {
+    function __construct($thousandsSeparator=',',$decimalSeparator='.') {
 
         $this->thousandsSeparator=$thousandsSeparator;
         $this->decimalSeparator=$decimalSeparator;
