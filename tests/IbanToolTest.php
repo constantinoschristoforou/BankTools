@@ -4,7 +4,7 @@
  *
  */
 
-use Qobo\BankTools\Iban\IbanCalculator;
+use Qobo\FinancialTools\Iban\IbanCalculator;
 
 require_once __DIR__.'/../vendor/autoload.php';
 

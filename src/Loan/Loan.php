@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Qobo\BankTools\Loan;
+namespace Qobo\FinancialTools\Loan;
 
 use \DateTime;
 /**

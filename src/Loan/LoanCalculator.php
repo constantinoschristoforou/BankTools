@@ -1,6 +1,6 @@
 <?php
 
-namespace Qobo\BankTools\Loan;
+namespace Qobo\FinancialTools\Loan;
 
 class LoanCalculator extends Loan
 {

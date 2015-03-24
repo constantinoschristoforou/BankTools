@@ -4,7 +4,7 @@
  *
  */
 
-use Qobo\BankTools\Currency\CurrencyConverter;
+use Qobo\FinancialTools\Currency\CurrencyConverter;
 
 require_once __DIR__.'/../vendor/autoload.php';
 

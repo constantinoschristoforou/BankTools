@@ -1,6 +1,6 @@
 <?php
 
-namespace Qobo\BankTools\Currency;
+namespace Qobo\FinancialTools\Currency;
 
 use PHPExcel_IOFactory;
 

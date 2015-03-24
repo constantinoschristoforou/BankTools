@@ -1,5 +1,5 @@
 {
-    "name": "Qobo/BankTools",
+    "name": "Qobo/PHP-Financial-Tools",
     "description": "Includes Currency converter,Iban Generator and Loan calculator",
     "authors": [
         {
@@ -14,7 +14,7 @@
 
     "autoload": {
         "psr-4": {
-            "Qobo\\BankTools\\": "src"
+            "Qobo\\FinancialTools\\": "src"
         }
     }
 }

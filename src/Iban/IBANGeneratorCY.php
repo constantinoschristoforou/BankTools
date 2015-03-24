@@ -4,7 +4,7 @@
  */
 
 
-namespace Qobo\BankTools\Iban;
+namespace Qobo\FinancialTools\Iban;
 
 use IBAN\Generation\IBANGenerator;
 

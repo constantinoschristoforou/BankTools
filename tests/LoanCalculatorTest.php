@@ -5,7 +5,7 @@
  */
 
 
-use Qobo\BankTools\Loan\LoanCalculator;
+use Qobo\FinancialTools\Loan\LoanCalculator;
 
 require_once __DIR__.'/../vendor/autoload.php';
 

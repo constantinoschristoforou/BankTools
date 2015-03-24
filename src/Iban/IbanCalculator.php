@@ -1,6 +1,6 @@
 <?php
 
-namespace Qobo\BankTools\Iban;
+namespace Qobo\FinancialTools\Iban;
 
 use IBAN\Validation\IBANValidator;
 
@@ -53,7 +53,7 @@ class IbanCalculator
             $error_messages['account_number'] = 'Please give your account number';
         }
 
-        if (strlen($account_number) != 16) {
+        if (strlen($account_number) != 12) {
             $error_messages['account_number_limit'] = 'Account number must be 16 characters';
         }
 

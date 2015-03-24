@@ -1,6 +1,6 @@
 <?php
 
-namespace Qobo\BankTools\Iban;
+namespace Qobo\FinancialTools\Iban;
 
 use IBAN\Rule\RuleFactoryInterface;
 use IBAN\Rule\Exception\RuleNotYetImplementedException;
@@ -23,7 +23,7 @@ Public function createIbanRule($ibanRuleCodeAndVersion, $instituteIdentification
     $ibanRuleFilePath = __DIR__.DIRECTORY_SEPARATOR.'Rule' . DIRECTORY_SEPARATOR . $this->localeCode . DIRECTORY_SEPARATOR . $ibanRuleFilename;
 
     if (file_exists($ibanRuleFilePath)) {
-        $ibanRuleQualifiedClassName = 'Qobo\\BankTools\\Iban\\Rule\\' . $this->localeCode . '\\Rule' . $ibanRuleCodeAndVersion;
+        $ibanRuleQualifiedClassName = 'Qobo\\FinancialTools\\Iban\\Rule\\' . $this->localeCode . '\\Rule' . $ibanRuleCodeAndVersion;
         return new $ibanRuleQualifiedClassName($this->localeCode, $instituteIdentification, $bankAccountNumber);
 
     } else {

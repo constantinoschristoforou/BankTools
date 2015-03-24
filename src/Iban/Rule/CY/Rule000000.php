@@ -5,7 +5,7 @@
  * @author      Constantinos Christoforou <c.christoforou@qobo.biz>
  *
  */
-namespace Qobo\BankTools\Iban\Rule\CY;
+namespace Qobo\FinancialTools\Iban\Rule\CY;
 
 use IBAN\Core\Constants;
 use IBAN\Rule\AbstractRule;
