@@ -4,6 +4,17 @@ namespace Qobo\BankTools\Loan;
 
 class LoanCalculator extends Loan
 {
+
+    private $thousandsSeparator ;
+    private $decimalSeparator;
+
+    function __construct($thousandsSeparator='.',$decimalSeparator=',') {
+
+        $this->thousandsSeparator=$thousandsSeparator;
+        $this->decimalSeparator=$decimalSeparator;
+
+    }
+
     public function validateUserInput()
     {
 
@@ -41,7 +52,7 @@ class LoanCalculator extends Loan
     public function getLoanMonthlyPayments()
     {
 
-        $this->loan_amount = str_replace(',', '', $this->loan_amount);
+        $this->loan_amount = str_replace($this->thousandsSeparator, '', $this->loan_amount);
 
         $monthly_payments = $this->getMonthlyPayments();
 
