@@ -61,7 +61,9 @@ class CurrencyToolTest extends PHPUnit_Framework_TestCase
      */
     public function test_validateUserInputCurrencyConverter($ammount, $currencyCode)
     {
-        $result=CurrencyConverter::validateUserInput($ammount, $currencyCode);
+
+        $currencyConverter=new CurrencyConverter();
+        $result=$currencyConverter->validateUserInput($ammount, $currencyCode);
 
         $this->assertEquals($result['status'], 'OK', "Validation function result does not much with the expected one");
 
@@ -83,10 +85,10 @@ class CurrencyToolTest extends PHPUnit_Framework_TestCase
             'buy_col' => 'C',
 
         );
+        $currencyConverter=new CurrencyConverter();
+        $currencyConverter->setRates('tests\TestFiles\rates.xls', $options);
 
-        CurrencyConverter::init('tests\TestFiles\rates.xls', $options);
-
-        $result=CurrencyConverter::convertCurrency($action, $amount, $currencyCode);
+        $result=$currencyConverter->convertCurrency($action, $amount, $currencyCode);
 
         $this->assertEquals($result, $expectedAmount, "Wrong currency calculations");
 
@@ -105,10 +107,11 @@ class CurrencyToolTest extends PHPUnit_Framework_TestCase
             'buy_col' => 'C',
 
         );
+        $currencyConverter=new CurrencyConverter();
+        $currencyConverter->setRates('tests\TestFiles\rates.xls', $options);
 
-        CurrencyConverter::init('\tests\TestFiles\rates.xls', $options);
 
-        $rates = CurrencyConverter::getRates();
+        $rates = $currencyConverter->getRates();
 
         $this->assertNotEmpty(count($rates), "Rates did not load successfully - Rates array len is zero");
 
@@ -130,9 +133,9 @@ class CurrencyToolTest extends PHPUnit_Framework_TestCase
         );
 
 
-        CurrencyConverter::init( __DIR__.'\TestFiles\rates.xls', $options);
-
-        $rate =CurrencyConverter::getCurrencyRate($action, $currencyCode);
+        $currencyConverter=new CurrencyConverter();
+        $currencyConverter->setRates('tests\TestFiles\rates.xls', $options);
+        $rate =$currencyConverter->getCurrencyRate($action, $currencyCode);
 
         $this->assertEquals($rate,$expectedRate,'Rate from excel dont much the retrieved one');
 

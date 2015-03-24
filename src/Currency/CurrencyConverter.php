@@ -6,19 +6,24 @@ use PHPExcel_IOFactory;
 
 class CurrencyConverter
 {
-    private static $rates = array();
+    public  $rates = array();
+    public $thousandsSeparator ;
+    public $decimalSeparator;
 
-    public static function init($rateFilePath, $options)
-    {
+    function __construct($thousandsSeparator=',',$decimalSeparator='.') {
 
-        if (empty (self::$rates)) {
+        $this->thousandsSeparator=$thousandsSeparator;
+        $this->decimalSeparator=$decimalSeparator;
 
-            self::$rates = self::loadRatesFromExcelFile($rateFilePath, $options);
-
-        }
     }
 
-    public static  function validateUserInput($amount, $currencyCode)
+
+    public  function setRates($rateFilePath, $options)
+    {
+        $this->rates= $this->loadRatesFromExcelFile($rateFilePath, $options);
+    }
+
+    public function validateUserInput($amount, $currencyCode)
     {
         $error_messages = array();
         $result = array();
@@ -32,7 +37,7 @@ class CurrencyConverter
         }
 
 
-        if (!self::validateCurrency($amount)) {
+        if (!$this->validateCurrency($amount)) {
 
             $error_messages['from_currency_valid'] = 'Please give a valid currency';
         }
@@ -51,17 +56,16 @@ class CurrencyConverter
 
     }
 
-    public static function validateCurrency($currency)
+    public function validateCurrency($currency)
     {
         return preg_match('/\b\d{1,3}(?:,?\d{3})*(?:\.\d{2})?\b/', $currency);
 
     }
 
-    public static function convertCurrency($action, $amount, $currencyCode)
+    public function convertCurrency($action, $amount, $currencyCode)
     {
-        $rate = self::getCurrencyRate($action, $currencyCode);
-
-        $amount=self::getFloatAmount($amount);
+        $rate =  $this->getCurrencyRate($action, $currencyCode);
+        $amount=$this->getFloatAmount($amount);
 
         if (strtolower($action) == "sell") {
 
@@ -75,9 +79,9 @@ class CurrencyConverter
 
     }
 
-   public static function  getCurrencyRate($action, $currencyCode)
+    public function  getCurrencyRate($action, $currencyCode)
     {
-        foreach (self::$rates as $rate) {
+        foreach ($this->rates as $rate) {
 
             if( strtoupper($rate['ccy'])==strtoupper($currencyCode)){
 
@@ -88,12 +92,12 @@ class CurrencyConverter
         return null;
     }
 
-    public static function formatToCurrency($val, $r = 2)
+    public  function formatToCurrency($val, $r = 2)
     {
         $n = $val;
         $c = is_float($n) ? 1 : number_format($n, $r);
-        $d = '.';
-        $t = ',';
+        $d = $this->decimalSeparator;
+        $t = $this->thousandsSeparator;
         $sign = ($n < 0) ? '-' : '';
         $i = $n = number_format(abs($n), $r);
         $j = (($j = $i . length) > 3) ? $j % 3 : 0;
@@ -102,7 +106,7 @@ class CurrencyConverter
 
     }
 
-    public static function loadRatesFromExcelFile($filePath, $options)
+    public function loadRatesFromExcelFile($filePath, $options)
     {
         //Not generic file parsing
         $excelReader = PHPExcel_IOFactory::createReaderForFile($filePath);
@@ -125,12 +129,12 @@ class CurrencyConverter
         return $resultArray;
     }
 
-     public static  function getRates()
+    public function getRates()
     {
-        return self::$rates;
+        return $this->rates;
     }
 
-    public static function getFloatAmount($money)
+    public  function getFloatAmount($money)
     {
         $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
         $onlyNumbersString = preg_replace('/([^0-9])/i', '', $money);
