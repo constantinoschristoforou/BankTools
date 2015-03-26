@@ -20,9 +20,9 @@ class EuroBankIbanToolTest extends PHPUnit_Framework_TestCase {
 
     public function userInputIbanGeneration() {
     return array(
-        array('00001','1111111111111111','OK'),
-        array('00001','1111111111111111','OK'),
-        array('00001','1111111111111111','OK'),
+        array('00001','111111111111','OK'),
+        array('00001','111111111111','OK'),
+        array('00001','111111111111','OK'),
     );
 }
 
@@ -48,9 +48,9 @@ class EuroBankIbanToolTest extends PHPUnit_Framework_TestCase {
 
     public function generateIban() {
         return array(
-            array('00001','1111111111111111','CY43180000011111111111111111'),
-            array('00001','1111111111111111','CY43180000011111111111111111'),
-            array('00001','1111111111111111','CY43180000011111111111111111'),
+            array('0008','300100018181','CY82018000080000300100018181'),
+//            array('0008','200100254590','CY65018000080000200100254590'),
+
         );
     }
 

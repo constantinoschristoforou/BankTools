@@ -87,7 +87,7 @@ class Rule000000 extends AbstractRule
 
     protected function getBankAccountNumberLength()
     {
-        return 12;
+        return 16;
     }
 
     private function getInvertedIban()
