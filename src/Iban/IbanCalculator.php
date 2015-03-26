@@ -13,7 +13,7 @@ class IbanCalculator
         $this->bankCode = $bankCode;
     }
 
-    public function normalizeBranchCode($branch_code, $digit_num = 5)
+    public function normalizeBranchCode($branch_code, $digit_num = 4)
     {
         $padding = '';
         for ($i = 0; $i < $digit_num - strlen($branch_code); $i++) {
@@ -38,7 +38,6 @@ class IbanCalculator
 
         return $generatedIban;
     }
-
 
     public function validateUserInputGeneration($branch_code,$account_number)
     {
