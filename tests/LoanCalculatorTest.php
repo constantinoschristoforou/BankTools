@@ -21,9 +21,17 @@ class EuroBanckLoanCalculatorTest extends PHPUnit_Framework_TestCase
     public function userInputLoanCalculator()
     {
         return array(
+
+            //Test valid
             array('100', '10', '5', '13/02/2015', 'OK'),
             array('1000', '20', '7', '', 'OK'),
             array('10000', '30', '10', '', 'OK'),
+
+
+            //Test invalid
+            array('0', '30', '10', '', 'ERROR'),
+            array('10.00', '', '10', '', 'ERROR'),
+            array('10.00', '10', '', '', 'ERROR'),
         );
     }
 
