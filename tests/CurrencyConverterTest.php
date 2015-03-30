@@ -36,6 +36,7 @@ class CurrencyToolTest extends PHPUnit_Framework_TestCase
             array('SELL', '100.00', 'CAD', '135.81'),
             array('BUY', '100.00', 'AUD', '69.26'),
             array('SELL', '10000', 'BGN', '19167.33'),
+            array('SELL', '100.00', 'USD', '114.6'),
         );
     }
 

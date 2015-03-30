@@ -17,20 +17,21 @@ class LoanCalculator extends Loan
 
     public function validateUserInput()
     {
-
         $error_messages = array();
         $result = array();
 
-        if (empty($this->loan_amount)) {
+        if (empty($this->loan_amount) || floatval($this->loan_amount)==0) {
             $error_messages['loan_amount'] = 'Please give a loan amount';
         }
-        if (!is_numeric($this->loan_term)) {
+
+        if ( empty($this->loan_term) || floatval($this->loan_term)==0) {
             $error_messages['loan_term'] = 'Please give the months to pay back';
         }
 
-        if (!is_numeric($this->interest_rate)) {
+        if ( empty($this->interest_rate) || floatval($this->interest_rate)==0) {
             $error_messages['interest_rate'] = 'Please give the annual interest rate';
         }
+
         if (empty($this->loan_start_timestamp)) {
 
              $error_messages['start_date'] = 'Please give a valid loan start date';
